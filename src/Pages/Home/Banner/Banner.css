@@ -1,0 +1,35 @@
+.banner-container {
+  width: 100% !important;
+  height: 80vh !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/vHTQzHy/main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 10%;
+}
+.banner-title {
+  letter-spacing: 10px;
+}
+.shop-now-btn {
+  letter-spacing: 5px;
+  background-color: black;
+  width: 15%;
+  border-radius: 5px;
+}
+.shop-now-btn:hover {
+  transition: all 0.5s ease-in-out;
+  background-color: chocolate;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .banner-title {
+    margin-top: 50px;
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+  .shop-now-btn {
+    width: 50%;
+  }
+}

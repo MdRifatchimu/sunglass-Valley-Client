@@ -1,0 +1,10 @@
+.productBackground {
+  background-color: #d8e8eb;
+}
+
+.product-card {
+  height: 550px;
+}
+.product-card img {
+  height: 300px;
+}

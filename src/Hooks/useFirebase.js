@@ -1,27 +1,72 @@
+import {useState, useEffect} from "react";
 import {
   getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
   updateProfile
 } from "firebase/auth";
-import {useState, useEffect} from "react";
-import initializeAuthentication from "../Firebase/firebase.init";
+import initializeFirebase from "../Firebase/firebase.init";
 
-initializeAuthentication();
+// initialize firebase app
+initializeFirebase();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-
   const [isLoading, setIsLoading] = useState(true);
+  const [authError, setAuthError] = useState("");
+  const [admin, setAdmin] = useState("");
 
   const auth = getAuth();
 
-  const googleProvider = new GoogleAuthProvider();
+  const signupUser = (name, email, password, location, history) => {
+    setIsLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+        setAuthError("");
+        const newUser = {email, displayName: name};
+        setUser(newUser);
+        saveUser(email, name);
+        updateProfile(auth.currentUser, {displayName: name}).then(result => {});
+      })
+      .catch(error => {
+        setAuthError(error.message);
+        console.log(error);
+      })
+      .finally(() => setIsLoading(false));
+  };
 
+  const saveUser = (email, displayName) => {
+    const user = {email, displayName};
+    fetch("https://quiet-eyrie-55711.herokuapp.com/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(user)
+    }).then();
+  };
+
+  const loginUser = (email, password, location, history) => {
+    setIsLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        const destination = location?.state?.from || "/";
+        history.replace(destination);
+        setAuthError("");
+      })
+      .catch(error => {
+        setAuthError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  // observer user state
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, user => {
+    const unsubscribed = onAuthStateChanged(auth, user => {
       if (user) {
         setUser(user);
       } else {
@@ -29,49 +74,33 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
-    return () => unSubscribe();
+    return () => unsubscribed;
   }, []);
 
-  const signInWithGoogle = () => {
-    return signInWithPopup(auth, googleProvider);
-  };
+  useEffect(() => {
+    fetch(`https://quiet-eyrie-55711.herokuapp.com/users/${user.email}`)
+      .then(res => res.json())
+      .then(data => setAdmin(data));
+  }, [user.email]);
 
-  const createAccountWithGoogle = (email, password) => {
-    return createAccountWithGoogle(auth, email, password);
-  };
-
-  const updateName = name => {
-    updateProfile(auth.currentUser, {
-      displayName: name
-    })
-      .then(() => {
-        const newUser = {...user, displayName: name};
-        setUser(newUser);
-      })
-      .catch(err => {
-        //error message
-      });
-  };
-  const logOut = () => {
+  const logout = () => {
     signOut(auth)
       .then(() => {
-        setUser({});
+        // Sign-out successful.
       })
-      .catch(err => {
-        //error message
+      .catch(error => {
+        // An error happened.
       });
   };
 
   return {
     user,
-    setUser,
-    signInWithGoogle,
-    createAccountWithGoogle,
-
+    admin,
     isLoading,
-    setIsLoading,
-    logOut,
-    updateName
+    authError,
+    signupUser,
+    loginUser,
+    logout
   };
 };
 
