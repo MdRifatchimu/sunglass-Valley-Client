@@ -125,7 +125,7 @@ const Purchase = () => {
           </div>
           <button
             type="button"
-            class="btn btn-info btn-lg w-75 mt-3"
+            class="btn btn-success btn-lg w-75 mt-3"
             onClick={handleOrder}
           >
             Buy Now

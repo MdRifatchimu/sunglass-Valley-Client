@@ -22,7 +22,7 @@ const Explore = () => {
                 <p class="card-text">{product.desc}</p>
                 <h5>{product.price}</h5>
                 <NavLink to={`/purchase/${product._id}`}>
-                  <button className="btn btn-dark">Buy Now</button>
+                  <button className="btn btn-warning">Buy Now</button>
                 </NavLink>
               </div>
             </div>

@@ -42,7 +42,7 @@ const ManageProducts = () => {
                   <p class="card-text">{product.desc}</p>
                   <h5>{product.price}</h5>
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-outline-danger"
                     onClick={() => handleDeleteProducts(product._id)}
                   >
                     Delete

@@ -77,7 +77,7 @@ const AddProduct = () => {
           />
           <label for="floatingPassword">Price</label>
         </div>
-        <button className="btn btn-info btn-lg w-100" onClick={handleSubmit}>
+        <button className="btn btn-success btn-lg w-100" onClick={handleSubmit}>
           Submit
         </button>
       </div>

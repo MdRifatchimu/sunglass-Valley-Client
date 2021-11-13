@@ -97,7 +97,7 @@ const Review = () => {
             <label for="floatingTextarea2">Write your review here</label>
           </div>
           <button
-            className="btn btn-info w-100 btn-lg mt-4"
+            className="btn btn-success w-100 btn-lg mt-4"
             onClick={handleSubmit}
           >
             Submit

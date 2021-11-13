@@ -37,7 +37,10 @@ const MakeAdmin = () => {
         />
         <label for="floatingPassword">Email</label>
       </div>
-      <button className="btn btn-info btn-lg w-100" onClick={handleMakeAdmin}>
+      <button
+        className="btn btn-success btn-lg w-100"
+        onClick={handleMakeAdmin}
+      >
         Make admin
       </button>
     </div>
