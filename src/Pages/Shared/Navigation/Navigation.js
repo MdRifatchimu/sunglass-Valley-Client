@@ -6,7 +6,7 @@ import "./Navigation.css";
 const Navigation = () => {
   const {user, logout} = useAuth();
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light navBackground">
       <div class="container">
         <NavLink to="/" style={{textDecoration: "none"}}>
           <h1 class="navbar-brand fs-2">Sunglass Valley</h1>

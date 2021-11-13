@@ -1,4 +1,7 @@
 .navbar-brand {
-    cursor: pointer !important;
-    margin-right: 20px;
+  cursor: pointer !important;
+  margin-right: 20px;
+}
+.navBackground {
+  background-color: #d4eff5 !important;
 }
