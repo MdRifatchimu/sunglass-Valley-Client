@@ -21,12 +21,12 @@ const Footer = () => {
             <div class="topic">Contact us</div>
             <div class="phone">
               <a href="#">
-                <i class="fas fa-phone-volume"></i>+007 9089 6767
+                <i class="fas fa-phone-volume"></i>+880 164 726 9879
               </a>
             </div>
             <div class="email">
               <a href="#">
-                <i class="fas fa-envelope"></i>abc @gmail.com
+                <i class="fas fa-envelope"></i>lalaland@gmail.com
               </a>
             </div>
           </div>
