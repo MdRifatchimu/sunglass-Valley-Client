@@ -11,6 +11,12 @@ const Review = () => {
     setReviewInfo(newReviewInfo);
   };
 
+  const handleRatingChange = e => {
+    let v = parseInt(e.target.value);
+    if (v < 0) e.target.value = 0;
+    if (v > 5) e.target.value = 5;
+  };
+
   const handleSubmit = e => {
     // send to the server
     fetch("https://quiet-eyrie-55711.herokuapp.com/reviews", {
@@ -23,7 +29,7 @@ const Review = () => {
       .then(res => res.json())
       .then(data => {
         if (data.insertedId) {
-          alert("Successfully Reviewd!");
+          alert("Successfully Reviewed!");
         }
       });
     e.preventDefault();
@@ -72,6 +78,7 @@ const Review = () => {
               type="number"
               class="form-control"
               onBlur={handleOnChange}
+              onChange={handleRatingChange}
               name="rating"
               id="floatingInput"
               placeholder="img link"

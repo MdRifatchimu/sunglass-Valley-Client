@@ -41,10 +41,10 @@ const Reviews = () => {
 
   console.log(reviews);
   return (
-    <div className="pb-5">
+    <div className="pt-1 pb-5">
       <section id="testimonials">
-        <div className="testimonial-heading ">
-          <h1>Client Reviews</h1>
+        <div className="testimonial-heading">
+          <h1>Reviews</h1>
         </div>
         <div className="testimonial-box-container">
           {reviews.map(review => (

@@ -16,7 +16,7 @@ const Explore = () => {
         {products.map(product => (
           <div class="col">
             <div class="card product-card">
-              <img src={product.image} class="card-img-top" alt="..." />
+              <img src={product.img} class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">{product.name}</h5>
                 <p class="card-text">{product.desc}</p>

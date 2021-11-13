@@ -48,7 +48,6 @@ const Purchase = () => {
     <div className="container text-start">
       <div class="row  g-4 mt-5">
         <div className="col-lg-8 col-md-12 col-sm-12">
-          <img src={product?.img} className="w-75" alt="" />
           <h1>
             <strong>Product Name:</strong> {product?.name}
           </h1>
@@ -56,7 +55,7 @@ const Purchase = () => {
             <strong>Product Description:</strong> {product?.desc}
           </p>
           <h3>Price: {product?.price}</h3>
-          <img src={product?.image} alt={product?.name} />
+          <img src={product?.img} alt={product?.name} />
         </div>
         <div className="col-lg-4 col-md-12 col-sm-12">
           <div class="mb-3">
