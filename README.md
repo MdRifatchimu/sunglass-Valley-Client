@@ -20,7 +20,7 @@
 <li>then i create routes to see other components in app.js</li>
 <li>I used Browser Router as Router</li>
 <li> I also used switch </li>
-
+<li>I also used nested route from react-router-dom</li>
 <li>I created different dashboard for normal users</li>
 <li>I created different dashboard for admins of this website</li>
 <li>I used some images to show services and also hosted this images in imgdb </li>
